@@ -1,3 +1,138 @@
+////////////////////////////////////////////////
+// QUEUE
+// class  Queue {
+//     constructor (){
+//        this.data = [];
+//     }
+
+//     add(record) {
+//         this.data.unshift(record)
+//     }
+
+//     remove() {
+//        return this.data.pop()
+//     }
+
+//     peek() {
+//         return this.data[this.data.length -1]
+//     }
+// }
+
+// function weave(sourceTwo, sourceTwo) {
+
+//     const q = new Queue()
+
+//     while (ConstantSourceNode.peek() || sourceTwo.peek()) {
+//         if(sourceOne.peek()){
+//             q.add(sourceOne.remove())
+//         }
+
+//         if(sourceTwo.peek()) {
+//             q.add(sourceTwo.remove())
+//         }
+//     }
+//     return q;
+// }
+
+
+// QUEUE V2
+
+class Queue {
+    constructor() {
+        this.collection = [];
+        this.print = function(){
+            console.log(this.collection);
+        }
+    }
+
+    enqueue(element){
+        this.collection.push(element);
+    }
+
+    dequeue(){
+        return this.collection.shift();
+    }
+
+    front(){
+        return this.collection[0];
+    }
+
+    size(){
+        return this.collection.length
+    }
+
+    isEmpty(){
+        return (this.collection.length === 0)
+    }
+
+}
+
+let q = new Queue(); 
+q.enqueue('a'); 
+q.enqueue('b');
+q.enqueue('c');
+q.print();
+q.dequeue();
+console.log(q.front());
+q.print();
+
+// Priority QUEUE 
+
+class PriorityQueue {
+    constructor() {
+        this.collection = [];
+        this.printCollection = function(){
+            console.log(this.collection);
+        }
+    }
+
+    enqueue(element){
+        if(this.isEmpty()){
+            this.collection.push(element)
+        }else {
+            let added = false;
+            for(let i = 0; i < this.collection.length; i++){
+                if(element[1] < this.collection[i][1]){
+                    this.collection.splice(i,0,element)
+                    added = true;
+                    break;
+                }
+            }
+            if(!added){
+                this.collection.push()
+            }
+        }
+    }
+
+    dequeue(){
+
+        let value = this.collection.shift();
+        return value[0]
+    }
+
+    front(){
+        return this.collection[0];
+    }
+
+    size(){
+        return this.collection.length
+    }
+
+    isEmpty(){
+        return (this.collection.length === 0)
+    }
+
+}
+
+let pq = new PriorityQueue(); 
+pq.enqueue(['Beau Carnes', 2]); 
+pq.enqueue(['Quincy Larson', 3]);
+pq.enqueue(['Ewa Mitulska-Wójcik', 1])
+pq.enqueue(['Briana Swift', 2])
+pq.printCollection();
+pq.dequeue();
+console.log(pq.front());
+pq.printCollection();
 
 ////////////////////////////////////////////////
 // STEPS --- Directions
@@ -36,13 +171,13 @@
   
 //  Recursion example;
 
-function prinNumber(n, dec = 1){
-    if(n === 0){
-        return;
-    }
-    console.log(n)
-    print(n - dec)
-}
+// function prinNumber(n, dec = 1){
+//     if(n === 0){
+//         return;
+//     }
+//     console.log(n)
+//     print(n - dec)
+// }
 
 /// Steps recursive solution
 
